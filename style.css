@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Rubik', sans-serif;
-    background-color: #edf0f5;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    background-color: #00b4d8;
     color: #804005;
     user-select: none;
 }
@@ -22,7 +22,7 @@ img{
 
 input{
     color: #804005;
-    background-color: #DCE1EB;
+    background-color: #FFFDF8 ;
     border: 0;
     padding: 15px;
     border-radius: 7px;
@@ -34,17 +34,18 @@ input{
 
 button{
     color: #FDFDFD;
-    background-color: #AC485A;
+    background-color: #fb6f92;
     border: 0;
     padding: 15px;
     border-radius: 8px;
     font-size: 20px;
     text-align: center;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    
 }
 
 button:hover{
-    background-color: #804005;
+    background-color: #e85d04;
     cursor: pointer;
 }
 
