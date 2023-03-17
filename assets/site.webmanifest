@@ -1,6 +1,6 @@
 {
-    "name": "Itemify",
-    "short_name": "Itemify",
+    "name": "TaskTrack",
+    "short_name": "TaskTrack",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

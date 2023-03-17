@@ -10,14 +10,18 @@ const thingsinDB = ref(database,"things")
 const items = document.getElementById("items")
 
 const input = document.getElementById("inp");
+
 but.addEventListener("click", function() {
+    if(input.value != ""){
    const inputval  = input.value;
-    // console.log(thingsinDB,inputval);
     push(thingsinDB,inputval)
     console.log(`${inputval} added to database`)
     clear()
+    }
 })
 
+
+//sits and listens for changes in the database
 onValue(thingsinDB,function(snapshot){
     if(snapshot.exists()){
     const thingsArray = Object.entries(snapshot.val())
