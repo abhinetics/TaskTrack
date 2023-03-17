@@ -37,7 +37,12 @@ function clear()    {
 }
 
 function append(inputval){
-    items.innerHTML += `<li>${inputval}</li>`
+    // items.innerHTML += `<li>${inputval}</li>`
+
+    let newElement = document.createElement("li");
+    newElement.innerHTML = inputval;
+    items.appendChild(newElement);
+
 }
 function clearShoppingList(){
     items.innerHTML = "";
