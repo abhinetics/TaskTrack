@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
     background-color: #edf0f5;
+    color: #804005;
 }
 .main
 {
@@ -39,6 +40,11 @@ button{
     font-size: 20px;
     text-align: center;
     font-family: 'Rubik', sans-serif;
+}
+
+button:hover{
+    background-color: #804005;
+    cursor: pointer;
 }
 
 ul{

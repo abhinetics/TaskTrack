@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase ,ref,push,onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase ,ref,push,onValue,remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 const appSettings = {
     databaseURL: "https://cart-9e2d3-default-rtdb.asia-southeast1.firebasedatabase.app/"
 }
@@ -12,36 +12,42 @@ const items = document.getElementById("items")
 const input = document.getElementById("inp");
 but.addEventListener("click", function() {
    const inputval  = input.value;
-    console.log(thingsinDB,inputval);
+    // console.log(thingsinDB,inputval);
     push(thingsinDB,inputval)
-    clear()
     console.log(`${inputval} added to database`)
+    clear()
 })
 
 onValue(thingsinDB,function(snapshot){
-    // console.log(snapshot.val())
+    if(snapshot.exists()){
     const thingsArray = Object.entries(snapshot.val())
     console.log(thingsArray)
     clearShoppingList();
     for(let i=0;i<thingsArray.length;i++){
         let currentThing = thingsArray[i]
-        let thingsArraykey = currentThing[0]
-        let thingsArrayvalue = currentThing[1]
-        append(thingsArrayvalue)
+        append(currentThing)
     }
-
+}
+else{
+    items.innerHTML = "No items left..."
+}
 })
 
-function clear()    {
-    input.innerHTML = "";
+function clear(){
+    input.value = "";
 }
 
 function append(inputval){
-    // items.innerHTML += `<li>${inputval}</li>`
-
+    let thingsId = inputval[0]
+    let thingsValue = inputval[1]
     let newElement = document.createElement("li");
-    newElement.innerHTML = inputval;
+    newElement.innerHTML = thingsValue;
     items.appendChild(newElement);
+
+    newElement.addEventListener("click",function(){
+    console.log(thingsValue)
+    remove(ref(database,`things/${thingsId}`))
+})
 
 }
 function clearShoppingList(){
