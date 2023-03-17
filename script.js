@@ -33,7 +33,7 @@ onValue(thingsinDB,function(snapshot){
     }
 }
 else{
-    items.innerHTML = "No items left..."
+    items.innerHTML = "No items left try adding some..."
 }
 })
 
